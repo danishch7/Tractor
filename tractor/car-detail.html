@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Car Details - CarHub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <i class="fas fa-car"></i>
+                    <h1><a href="index.html" style="text-decoration: none; color: inherit;">CarHub</a></h1>
+                </div>
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="#" class="nav-link">About</a>
+                    <a href="#" class="nav-link">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Car Detail Section -->
+    <section class="car-detail">
+        <div class="container">
+            <div class="car-detail-container">
+                <!-- Main Content -->
+                <div class="car-detail-content">
+                    <!-- Car Title -->
+                    <h1 class="car-detail-title" id="carTitle">Loading...</h1>
+
+                    <!-- Car Information Section -->
+                    <div class="car-detail-section">
+                        <h2 class="section-title">
+                            <i class="fas fa-info-circle"></i>
+                            Vehicle Information
+                        </h2>
+                        <div class="car-details-grid" id="carDetails">
+                            <!-- Car details will be populated here -->
+                        </div>
+                    </div>
+
+                    <!-- Images Section -->
+                    <div class="car-detail-section">
+                        <h2 class="section-title">
+                            <i class="fas fa-images"></i>
+                            Images
+                        </h2>
+                        <div class="car-images-gallery" id="carImagesGallery">
+                            <!-- Car images will be populated here -->
+                        </div>
+                    </div>
+
+                    <!-- Video Section -->
+                    <div class="car-detail-section">
+                        <h2 class="section-title">
+                            <i class="fas fa-video"></i>
+                            Video Showcase
+                        </h2>
+                        <div id="carVideoSection">
+                            <!-- Car video will be embedded here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Sidebar -->
+                <div class="contact-sidebar">
+                    <div class="contact-card">
+                        <h3>Interested?</h3>
+                        <button class="contact-now-btn" onclick="contactDealer()">
+                            <i class="fas fa-phone"></i>
+                            Contact Now
+                        </button>
+                        <div class="contact-info">
+                            <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                            <p><i class="fas fa-envelope"></i> sales@carhub.com</p>
+                            <p><i class="fas fa-map-marker-alt"></i> 123 Auto Street</p>
+                            <p><i class="fas fa-clock"></i> Mon-Sat 9AM-6PM</p>
+                        </div>
+                        
+                        <!-- Additional Actions -->
+                        <div style="margin-top: 1rem;">
+                            <button class="read-more-btn" onclick="scheduleTestDrive()" style="margin-bottom: 0.5rem;">
+                                <i class="fas fa-calendar"></i>
+                                Schedule Test Drive
+                            </button>
+                            <button class="read-more-btn" onclick="requestQuote()" style="background: #28a745;">
+                                <i class="fas fa-calculator"></i>
+                                Request Quote
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Back to Home Button -->
+            <div style="text-align: center; margin-top: 3rem;">
+                <button onclick="window.location.href='index.html'" class="read-more-btn" style="background: #6c757d; padding: 1rem 3rem;">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Car Listings
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <i class="fas fa-car"></i>
+                        <h3>CarHub</h3>
+                    </div>
+                    <p>Your trusted partner in finding the perfect vehicle.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> info@carhub.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Auto Street, Car City</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CarHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/car-detail.js"></script>
+    <script>
+        // Contact and interaction functions
+        function contactDealer() {
+            alert('Contact dealer feature - In a real application, this would open a contact form or dial the dealer directly.');
+        }
+
+        function scheduleTestDrive() {
+            alert('Schedule test drive feature - In a real application, this would open a scheduling form.');
+        }
+
+        function requestQuote() {
+            alert('Request quote feature - In a real application, this would open a quote request form.');
+        }
+    </script>
+</body>
+</html>
