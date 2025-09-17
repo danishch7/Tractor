@@ -2,20 +2,19 @@
 const carsData = [
     {
         id: 1,
-        name: "BMW M3 Competition",
-        price: "$75,900",
-        year: "2024",
-        mileage: "0 miles",
-        engine: "3.0L Twin-Turbo I6",
-        transmission: "8-Speed Automatic",
-        fuelType: "Gasoline",
-        drivetrain: "RWD",
-        color: "Alpine White",
+        name: "240 Tractor",
+        price: "1200,000",
+        year: "2010",
+        color: "Red",
+        model: "240",
+        tyre: "12",
+        location: "32/sp",
         images: [
-            "https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-            "https://images.unsplash.com/photo-1617469165786-8007eda4bf80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2127&q=80"
+            "img/240/download.jpeg",
+            "img/240/download (1).jpeg",
+            "img/240/download (3).jpeg"
         ],
-        video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        video: "video/tractorvid.mp4",
         specs: {
             horsepower: "503 HP",
             torque: "479 lb-ft",
@@ -27,20 +26,19 @@ const carsData = [
     },
     {
         id: 2,
-        name: "Mercedes-AMG C63 S",
-        price: "$79,500",
-        year: "2024",
-        mileage: "0 miles",
-        engine: "4.0L Twin-Turbo V8",
-        transmission: "9-Speed Automatic",
-        fuelType: "Gasoline",
-        drivetrain: "RWD",
-        color: "Obsidian Black",
+        name: "260 Tractor",
+        price: "1600,000",
+        year: "2014",
+        color: "Red",
+        model: "260",
+        tyre: "12",
+        location: "32/sp",
         images: [
-            "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-            "https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+            "img/260/download.jpeg",
+            "img/240/download (2).jpeg",
+            "img/240/download (3).jpeg"
         ],
-        video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        video: "video/tractorvid.mp4",
         specs: {
             horsepower: "469 HP",
             torque: "479 lb-ft",
@@ -48,109 +46,9 @@ const carsData = [
             topSpeed: "174 mph",
             mpg: "17/25 mpg"
         },
-        description: "The Mercedes-AMG C63 S delivers exceptional performance with luxury refinement. Pure AMG engineering in a sophisticated package."
+        description: "The 260 Tractor delivers exceptional performance with reliability. Pure engineering in a powerful package."
     },
-    {
-        id: 3,
-        name: "Audi RS5 Sportback",
-        price: "$82,400",
-        year: "2024",
-        mileage: "0 miles",
-        engine: "2.9L Twin-Turbo V6",
-        transmission: "8-Speed Tiptronic",
-        fuelType: "Gasoline",
-        drivetrain: "AWD",
-        color: "Nardo Gray",
-        images: [
-            "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-            "https://images.unsplash.com/photo-1609521263047-f8f205293f24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2129&q=80"
-        ],
-        video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-        specs: {
-            horsepower: "444 HP",
-            torque: "443 lb-ft",
-            acceleration: "0-60 mph in 3.7s",
-            topSpeed: "174 mph",
-            mpg: "19/26 mpg"
-        },
-        description: "The Audi RS5 Sportback combines stunning design with Quattro all-wheel drive performance. Five doors of pure excitement."
-    },
-    {
-        id: 4,
-        name: "Porsche 911 Carrera S",
-        price: "$126,100",
-        year: "2024",
-        mileage: "0 miles",
-        engine: "3.0L Twin-Turbo H6",
-        transmission: "8-Speed PDK",
-        fuelType: "Gasoline",
-        drivetrain: "RWD",
-        color: "Guards Red",
-        images: [
-            "https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-            "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2127&q=80"
-        ],
-        video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-        specs: {
-            horsepower: "443 HP",
-            torque: "390 lb-ft",
-            acceleration: "0-60 mph in 3.5s",
-            topSpeed: "191 mph",
-            mpg: "20/27 mpg"
-        },
-        description: "The iconic Porsche 911 Carrera S represents the pinnacle of sports car engineering. Timeless design meets modern performance."
-    },
-    {
-        id: 5,
-        name: "Tesla Model S Plaid",
-        price: "$108,490",
-        year: "2024",
-        mileage: "0 miles",
-        engine: "Electric Motors",
-        transmission: "Single-Speed",
-        fuelType: "Electric",
-        drivetrain: "AWD",
-        color: "Pearl White",
-        images: [
-            "https://images.unsplash.com/photo-1617886903355-9354bb57751f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-            "https://images.unsplash.com/photo-1560958089-b8a1929cea89?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80"
-        ],
-        video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-        specs: {
-            horsepower: "1,020 HP",
-            torque: "1,050 lb-ft",
-            acceleration: "0-60 mph in 1.99s",
-            topSpeed: "200 mph",
-            range: "396 miles"
-        },
-        description: "The Tesla Model S Plaid redefines what's possible in electric performance. Ludicrous acceleration meets luxury comfort."
-    },
-    {
-        id: 6,
-        name: "Lamborghini Huracán EVO",
-        price: "$248,295",
-        year: "2024",
-        mileage: "0 miles",
-        engine: "5.2L V10",
-        transmission: "7-Speed Dual-Clutch",
-        fuelType: "Gasoline",
-        drivetrain: "AWD",
-        color: "Arancio Borealis",
-        images: [
-            "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2127&q=80",
-            "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-        ],
-        video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-        specs: {
-            horsepower: "630 HP",
-            torque: "443 lb-ft",
-            acceleration: "0-60 mph in 2.9s",
-            topSpeed: "202 mph",
-            mpg: "13/18 mpg"
-        },
-        description: "The Lamborghini Huracán EVO embodies pure Italian supercar passion. Breathtaking performance meets stunning design."
-    }
-];
+   ];
 
 // DOM Elements
 let carsGrid;
@@ -220,15 +118,7 @@ function createCarCard(car) {
                     <i class="fas fa-calendar"></i>
                     <span>${car.year}</span>
                 </div>
-                <div class="car-spec">
-                    <i class="fas fa-tachometer-alt"></i>
-                    <span>${car.mileage}</span>
-                </div>
-                <div class="car-spec">
-                    <i class="fas fa-cog"></i>
-                    <span>${car.transmission}</span>
-                </div>
-            </div>
+                        </div>
             <button class="read-more-btn" onclick="viewCarDetails(${car.id})">
                 Read More
             </button>

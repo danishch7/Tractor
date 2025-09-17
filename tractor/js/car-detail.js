@@ -38,12 +38,10 @@ function populateCarDetails(car) {
     const details = [
         { label: 'Price', value: car.price, icon: 'fas fa-dollar-sign' },
         { label: 'Year', value: car.year, icon: 'fas fa-calendar' },
-        { label: 'Mileage', value: car.mileage, icon: 'fas fa-tachometer-alt' },
-        { label: 'Engine', value: car.engine, icon: 'fas fa-cog' },
-        { label: 'Transmission', value: car.transmission, icon: 'fas fa-exchange-alt' },
-        { label: 'Fuel Type', value: car.fuelType, icon: 'fas fa-gas-pump' },
-        { label: 'Drivetrain', value: car.drivetrain, icon: 'fas fa-road' },
-        { label: 'Color', value: car.color, icon: 'fas fa-palette' }
+        { label: 'Model', value: car.model || '16', icon: 'fas fa-car' },
+        { label: 'Tyre', value: car.tyre || '12', icon: 'fas fa-tire-rugged' },
+        { label: 'Color', value: car.color || 'red', icon: 'fas fa-palette' },
+        { label: 'Location', value: car.location || '32/sp', icon: 'fas fa-map-marker-alt' }
     ];
     
     carDetailsContainer.innerHTML = details.map(detail => `
@@ -55,46 +53,7 @@ function populateCarDetails(car) {
         </div>
     `).join('');
     
-    // Add performance specs if available
-    if (car.specs) {
-        const specsSection = document.createElement('div');
-        specsSection.innerHTML = `
-            <div class="car-detail-section" style="margin-top: 2rem;">
-                <h2 class="section-title">
-                    <i class="fas fa-bolt"></i>
-                    Performance Specifications
-                </h2>
-                <div class="car-details-grid">
-                    ${Object.entries(car.specs).map(([key, value]) => `
-                        <div class="detail-item">
-                            <span class="detail-label">${formatSpecKey(key)}</span>
-                            <span class="detail-value">${value}</span>
-                        </div>
-                    `).join('')}
-                </div>
-            </div>
-        `;
-        
-        document.getElementById('carDetails').parentNode.insertAdjacentElement('afterend', specsSection);
-    }
-    
-    // Add description if available
-    if (car.description) {
-        const descriptionSection = document.createElement('div');
-        descriptionSection.innerHTML = `
-            <div class="car-detail-section" style="margin-top: 2rem;">
-                <h2 class="section-title">
-                    <i class="fas fa-file-alt"></i>
-                    Description
-                </h2>
-                <p style="font-size: 1.1rem; line-height: 1.6; color: var(--text-light);">
-                    ${car.description}
-                </p>
-            </div>
-        `;
-        
-        document.getElementById('carDetails').parentNode.insertAdjacentElement('afterend', descriptionSection);
-    }
+    // Performance specs and description sections have been removed as per requirements
 }
 
 function populateCarImages(car) {
@@ -153,32 +112,64 @@ function openImageModal(imageSrc, altText) {
         justify-content: center;
         align-items: center;
         z-index: 10000;
-        cursor: pointer;
+        cursor: grab;
+        user-select: none;
+        overflow: hidden;
     `;
     
     modal.innerHTML = `
-        <div style="position: relative; max-width: 90%; max-height: 90%;">
-            <img src="${imageSrc}" 
-                 alt="${altText}" 
-                 style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 8px;">
-            <button style="
-                position: absolute;
-                top: -15px;
-                right: -15px;
-                background: var(--primary-orange);
-                color: white;
-                border: none;
-                border-radius: 50%;
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-                cursor: pointer;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            " onclick="closeImageModal()">
-                <i class="fas fa-times"></i>
-            </button>
+        <div class="modal-content" style="position: relative; max-width: 90%; max-height: 90%;">
+            <div class="image-container" style="position: relative; overflow: hidden; max-width: 100%; max-height: 90vh;">
+                <img src="${imageSrc}" 
+                     alt="${altText}" 
+                     class="modal-image"
+                     style="display: block; max-width: 100%; max-height: 100%; object-fit: contain; transform-origin: center center; transition: transform 0.3s ease;">
+            </div>
+            
+            <!-- Controls -->
+            <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; background: rgba(0,0,0,0.7); padding: 8px 16px; border-radius: 30px;">
+                <button class="control-btn" onclick="zoomOut(event)" title="Zoom Out">
+                    <i class="fas fa-search-minus"></i>
+                </button>
+                <button class="control-btn" onclick="resetZoom(event)" title="Reset Zoom">
+                    <i class="fas fa-sync-alt"></i>
+                </button>
+                <button class="control-btn" onclick="zoomIn(event)" title="Zoom In">
+                    <i class="fas fa-search-plus"></i>
+                </button>
+                <button class="control-btn" onclick="downloadImage('${imageSrc}', '${altText.replace(/\s+/g, '-').toLowerCase()}')" title="Download">
+                    <i class="fas fa-download"></i>
+                </button>
+                <button class="control-btn close-btn" onclick="closeImageModal()" title="Close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <style>
+                .control-btn {
+                    background: rgba(255, 255, 255, 0.2);
+                    border: none;
+                    color: white;
+                    width: 36px;
+                    height: 36px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+                }
+                .control-btn:hover {
+                    background: var(--primary-orange);
+                    transform: scale(1.1);
+                }
+                .close-btn {
+                    background: #ff4444;
+                }
+                .close-btn:hover {
+                    background: #ff0000;
+                }
+            </style>
         </div>
     `;
     
@@ -210,6 +201,92 @@ document.addEventListener('keydown', function(e) {
         closeImageModal();
     }
 });
+
+// Zoom functionality
+let currentScale = 1;
+const SCALE_FACTOR = 0.1;
+const MIN_SCALE = 0.5;
+const MAX_SCALE = 4;
+
+function zoomIn(e) {
+    e.stopPropagation();
+    const img = document.querySelector('.modal-image');
+    if (currentScale < MAX_SCALE) {
+        currentScale += SCALE_FACTOR;
+        img.style.transform = `scale(${currentScale})`;
+    }
+}
+
+function zoomOut(e) {
+    e.stopPropagation();
+    const img = document.querySelector('.modal-image');
+    if (currentScale > MIN_SCALE) {
+        currentScale -= SCALE_FACTOR;
+        img.style.transform = `scale(${currentScale})`;
+    }
+}
+
+function resetZoom(e) {
+    e.stopPropagation();
+    const img = document.querySelector('.modal-image');
+    currentScale = 1;
+    img.style.transform = 'scale(1)';
+}
+
+// Pan functionality
+let isDragging = false;
+let startX, startY, scrollLeft, scrollTop;
+
+function startDrag(e) {
+    const container = document.querySelector('.image-container');
+    isDragging = true;
+    container.style.cursor = 'grabbing';
+    startX = e.pageX - container.offsetLeft;
+    startY = e.pageY - container.offsetTop;
+    scrollLeft = container.scrollLeft;
+    scrollTop = container.scrollTop;
+}
+
+function drag(e) {
+    if (!isDragging) return;
+    e.preventDefault();
+    const container = document.querySelector('.image-container');
+    const x = e.pageX - container.offsetLeft;
+    const y = e.pageY - container.offsetTop;
+    const walkX = (x - startX) * 2;
+    const walkY = (y - startY) * 2;
+    container.scrollLeft = scrollLeft - walkX;
+    container.scrollTop = scrollTop - walkY;
+}
+
+function endDrag() {
+    isDragging = false;
+    const container = document.querySelector('.image-container');
+    if (container) container.style.cursor = 'grab';
+}
+
+// Add pan functionality to the modal
+document.addEventListener('mousedown', function(e) {
+    const modal = document.querySelector('.image-modal');
+    const img = document.querySelector('.modal-image');
+    if (modal && img && modal.contains(e.target) && e.target.closest('.control-btn') === null) {
+        startDrag(e);
+    }
+});
+
+document.addEventListener('mousemove', drag);
+document.addEventListener('mouseup', endDrag);
+document.addEventListener('mouseleave', endDrag);
+
+// Download image functionality
+function downloadImage(url, filename) {
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `tractor-${filename}-${new Date().getTime()}.jpg`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
 
 // Additional functionality for car detail interactions
 function shareCar() {

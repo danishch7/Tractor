@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Tractor</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        .about-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .about-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .about-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary-orange);
+            margin-bottom: 1rem;
+        }
+        
+        .about-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-card {
+            background: var(--pure-white);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .contact-card h2 {
+            color: var(--primary-orange);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .contact-info p {
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-dark);
+        }
+        
+        .contact-info i {
+            color: var(--primary-orange);
+            width: 24px;
+            text-align: center;
+        }
+        
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #25D366;
+            color: white !important;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .whatsapp-btn:hover {
+            background: #128C7E;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <i class="fas fa-car"></i>
+                    <h1><a href="index.html" style="text-decoration: none; color: inherit;">Tractor</a></h1>
+                </div>
+                <div class="nav-menu">
+                    <a href="index.html">Home</a>
+                    <a href="about.html" class="active">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="about-container">
+        <div class="about-header">
+            <h1>About Us</h1>
+            <p>Welcome to Tractor, your trusted partner for finding the best agricultural equipment. We are dedicated to providing high-quality tractors and farm machinery to help you with all your agricultural needs.</p>
+        </div>
+        
+        <div class="contact-cards">
+            <div class="contact-card">
+                <h2><i class="fas fa-phone"></i> Contact Numbers</h2>
+                <div class="contact-info">
+                    <p><i class="fas fa-phone"></i> +92 307 210 2328</p>
+                    <p><i class="fas fa-phone"></i> +92 301 581 2135</p>
+                    <p><i class="fas fa-phone"></i> +92 326 724 5532</p>
+                    <a href="https://wa.me/923267245532" class="whatsapp-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                    </a>
+                </div>
+            </div>
+            
+            <div class="contact-card">
+                <h2><i class="fas fa-envelope"></i> Email</h2>
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> danishali63233@gmail.com</p>
+                </div>
+            </div>
+            
+            <div class="contact-card">
+                <h2><i class="fab fa-whatsapp"></i> WhatsApp</h2>
+                <div class="contact-info">
+                    <p><i class="fab fa-whatsapp"></i> +92 301 581 2135</p>
+                    <p><i class="fab fa-whatsapp"></i> +92 326 724 5532</p>
+                    <a href="https://wa.me/923267245532" class="whatsapp-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Start Chat
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>About Tractor</h3>
+                    <p>Your trusted partner for agricultural equipment and machinery. We provide the best solutions for all your farming needs.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +92 307 210 2328</li>
+                        <li><i class="fas fa-envelope"></i> danishali63233@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Pakpattan</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Tractor. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/923267245532" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Add any JavaScript functionality here if needed
+    </script>
+</body>
+</html>
